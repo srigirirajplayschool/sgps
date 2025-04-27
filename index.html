@@ -113,20 +113,6 @@
       display: inline-block;
       margin-top: 15px;
     }
-    .gallery {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      justify-content: center;
-    }
-    .gallery img {
-      width: 100%;
-      max-width: 300px;
-      height: 200px;
-      object-fit: cover;
-      border-radius: 10px;
-      box-shadow: 0 0 5px rgba(0,0,0,0.1);
-    }
     .whatsapp-button {
       position: fixed;
       bottom: 20px;
@@ -145,6 +131,57 @@
       z-index: 1000;
     }
 
+    /* Slideshow CSS */
+    .slideshow-container {
+      max-width: 800px;
+      position: relative;
+      margin: auto;
+      overflow: hidden;
+    }
+    .slide {
+      display: none;
+    }
+    .slide img {
+      width: 100%;
+      max-height: 500px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+    .prev, .next {
+      cursor: pointer;
+      position: absolute;
+      top: 50%;
+      width: auto;
+      padding: 16px;
+      margin-top: -22px;
+      color: white;
+      font-weight: bold;
+      font-size: 20px;
+      border-radius: 0 3px 3px 0;
+      user-select: none;
+      background-color: rgba(0,0,0,0.5);
+    }
+    .next {
+      right: 0;
+      border-radius: 3px 0 0 3px;
+    }
+    .dots-container {
+      text-align: center;
+      margin-top: 10px;
+    }
+    .dot {
+      cursor: pointer;
+      height: 15px;
+      width: 15px;
+      margin: 0 5px;
+      background-color: #bbb;
+      border-radius: 50%;
+      display: inline-block;
+    }
+    .active, .dot:hover {
+      background-color: #717171;
+    }
+
     /* Responsive Design */
     @media (max-width: 768px) {
       header img {
@@ -153,217 +190,102 @@
         display: block;
         margin: 0 auto 10px;
       }
-
       nav {
         display: flex;
         flex-direction: column;
       }
-
       .hero {
         padding: 60px 20px;
       }
-
       .hero h1 {
         font-size: 2em;
       }
-
       .hero p {
         font-size: 1.2em;
-      }
-
-      .gallery img {
-        height: 180px;
-      }
-
-      section {
-        padding: 30px 15px;
       }
     }
   </style>
 </head>
 <body>
-  <header>
-    <img src="logo.png" alt="School Logo">
-    <h1>Sri Giriraj Playschool</h1>
-    <p>Main Road Noamundi, Near Panchayat Bhawan | +91 9583851448 / +91 6205837403</p>
-  </header>
 
-  <nav>
-    <a href="#about">About</a>
-    <a href="#programs">Programs</a>
-    <a href="#admissions">Admissions</a>
-    <a href="#gallery">Gallery</a>
-    <a href="#contact">Contact</a>
-  </nav>
+<header>
+  <img src="logo.png" alt="School Logo">
+  <h1>Sri Giriraj Playschool</h1>
+  <p>Main Road Noamundi, Near Panchayat Bhawan | +91 9583851448 / +91 6205837403</p>
+</header>
 
-  <div class="hero">
-    <h1>Welcome to Sri Giriraj Playschool</h1>
-    <p>Learn with fun</p>
-    <a href="#programs" class="cta-button">Explore Our Programs</a>
+<nav>
+  <a href="#about">About</a>
+  <a href="#programs">Programs</a>
+  <a href="#admissions">Admissions</a>
+  <a href="#gallery">Gallery</a>
+  <a href="#contact">Contact</a>
+</nav>
+
+<div class="hero">
+  <h1>Welcome to Sri Giriraj Playschool</h1>
+  <p>Learn with fun</p>
+  <a href="#programs" class="cta-button">Explore Our Programs</a>
+</div>
+
+<section id="about">
+  <h2>Welcome to Sri Giriraj Playschool</h2>
+  <div class="highlight">
+    <p>At Sri Giriraj Playschool, we are dedicated to creating a fun, nurturing, and enriching environment for your child. We understand the importance of early childhood education and provide a holistic development program that encourages curiosity, creativity, and emotional intelligence.</p>
+    <p><strong>Director:</strong> Priywart Karnani</p>
+    <h3>Our Vision</h3>
+    <p>To be a pioneering institution that nurtures the intellectual, spiritual, emotional, social, and physical growth of every child.</p>
+    <h3>Our Mission</h3>
+    <p>To provide a safe, creative, and stimulating environment where children learn through hands-on experiences.</p>
+    <h3>Our Core Values</h3>
+    <ul>
+      <li><strong>Innovation:</strong> Fostering creativity and curiosity.</li>
+      <li><strong>Safety:</strong> Providing a secure environment.</li>
+      <li><strong>Integrity:</strong> Teaching honesty and respect.</li>
+      <li><strong>Community:</strong> Partnering with parents and teachers.</li>
+      <li><strong>Excellence:</strong> Delivering top-quality education and care.</li>
+    </ul>
   </div>
+</section>
 
-  <!-- About Us Section -->
-  <section id="about">
-    <h2>Welcome to Sri Giriraj Playschool</h2>
-    <div class="highlight">
-      <p>At Sri Giriraj Playschool, we are dedicated to creating a fun, nurturing, and enriching environment for your child. We understand the importance of early childhood education and provide a holistic development program that encourages curiosity, creativity, and emotional intelligence.</p>
-      <p>Our curriculum blends modern educational methods with traditional values to ignite curiosity, encourage creativity, and promote independent thinking.</p>
-      <p><strong>Director:</strong> Priywart Karnani</p>
-      <h3>Our Vision</h3>
-      <p>To be a pioneering institution that nurtures the intellectual, spiritual, emotional, social, and physical growth of every child.</p>
-      <h3>Our Mission</h3>
-      <p>To provide a safe, creative, and stimulating environment where children learn through hands-on experiences.</p>
-      <h3>Our Core Values</h3>
-      <ul>
-        <li><strong>Innovation:</strong> Fostering creativity and curiosity.</li>
-        <li><strong>Safety:</strong> Providing a secure environment.</li>
-        <li><strong>Integrity:</strong> Teaching honesty and respect.</li>
-        <li><strong>Community:</strong> Partnering with parents and teachers.</li>
-        <li><strong>Excellence:</strong> Delivering top-quality education and care.</li>
-      </ul>
-    </div>
-  </section>
+<section id="programs">
+  <h2>Our Programs</h2>
+  <ul>
+    <li>Playgroup</li>
+    <li>Activity-based learning: Art, spirituality, Music, Dance, Yoga, Outdoor Play</li>
+  </ul>
+  <div class="highlight">
+    <h3>Playgroup Details</h3>
+    <p># 3 Hours/Day.</p>
+    <p># A safe and stimulating environment for toddlers to learn and grow across all domains.</p>
+    <p># Proper theme school dress will be provided to students</p>
+  </div>
+</section>
 
-  <!-- Programs Section -->
-  <section id="programs">
-    <h2>Our Programs</h2>
-    <ul>
-      <li>Playgroup</li>
-      <li>Activity-based learning: Art, spirituality, Music, Dance, Yoga, Outdoor Play</li>
-    </ul>
-    <div class="highlight">
-      <h3>Playgroup Details</h3>
-       <p># 3 Hours/Day.</p>
-       <p># A safe and stimulating environment for toddlers to learn and grow across all domains.</p>
-       <p># Proper theme school dress will be provided to students</p>
-    </div>
-  </section>
+<section id="admissions">
+  <h2>Admissions 2025-2026</h2>
+  <p>Admissions are open! Submit the admission form with:</p>
+  <ul>
+    <li>Birth Certificate (photocopy)</li>
+    <li>2 Passport-sized Photos</li>
+    <li>Parent ID & Address Proof</li>
+  </ul>
+  <a class="button" href="https://forms.gle/9VaKpoUp9eWuFJKp9" target="_blank">Fill Admission Form!</a>
+</section>
 
-  <!-- Admissions Section -->
-  <section id="admissions">
-    <h2>Admissions 2025-2026</h2>
-    <p>Admissions are open! Submit the admission form with:</p>
-    <ul>
-      <li>Birth Certificate (photocopy)</li>
-      <li>2 Passport-sized Photos</li>
-      <li>Parent ID & Address Proof</li>
-    </ul>
-    <a class="button" href="https://forms.gle/9VaKpoUp9eWuFJKp9" download>Fill Admission Form!</a>
-  </section>
-
-  <!-- Gallery Section -->
-  <section id="gallery">
-    <div class="gallery">
-    
-<style>
-  .slideshow-container {
-    max-width: 1000px;
-    position: relative;
-    margin: auto;
-    overflow: hidden;
-  }
-  .slide {
-    display: none;
-  }
-  .slide img {
-    width: 100%;
-    border-radius: 10px;
-  }
-  /* Buttons */
-  .prev, .next {
-    cursor: pointer;
-    position: absolute;
-    top: 50%;
-    width: auto;
-    padding: 16px;
-    margin-top: -22px;
-    color: white;
-    font-weight: bold;
-    font-size: 20px;
-    border-radius: 0 3px 3px 0;
-    user-select: none;
-    background-color: rgba(0,0,0,0.5);
-  }
-  .next {
-    right: 0;
-    border-radius: 3px 0 0 3px;
-  }
-  /* Dots */
-  .dots-container {
-    text-align: center;
-    margin-top: 10px;
-  }
-  .dot {
-    cursor: pointer;
-    height: 15px;
-    width: 15px;
-    margin: 0 5px;
-    background-color: #bbb;
-    border-radius: 50%;
-    display: inline-block;
-  }
-  .active, .dot:hover {
-    background-color: #717171;
-  }
-</style>
-
-<!-- Gallery Section -->
 <section id="gallery">
   <h2>Photo Gallery</h2>
   <div class="slideshow-container">
+    <div class="slide"><img src="DRESS.jpg" alt=""></div>
+    <div class="slide"><img src="p1.jpg" alt=""></div>
+    <div class="slide"><img src="p2.jpg" alt=""></div>
+    <div class="slide"><img src="p3.webp" alt=""></div>
+    <div class="slide"><img src="p4.png" alt=""></div>
+    <div class="slide"><img src="p5.jpg" alt=""></div>
 
-    <div class="slide">
-      <img src="DRESS.jpg" alt="">
-    </div>
-
-    <div class="slide">
-      <img src="p1.jpg" alt="">
-    </div>
-
-    <div class="slide">
-      <img src="p2.jpg" alt="">
-    </div>
-
-    
-    <div class="slide">
-      <img src="p3.webp" alt="">
-    </div>
-
-    <div class="slide">
-      <img src="p4.png" alt="">
-    </div>
-    
-    <div class="slide">
-      <img src="p5.jpg" alt="">
-    </div>
-
-    <style>
-  .slideshow-container {
-    max-width: 800px;
-    position: relative;
-    margin: auto;
-    overflow: hidden;
-  }
-  .slide {
-    display: none;
-  }
-  .slide img {
-    width: 100%;
-    max-height: 800px; 
-    object-fit: cover;
-    border-radius: 10px;
-  }
-  /* Buttons and dots styling (keep same as before) */
-</style>
-
-
-    <!-- Buttons -->
     <a class="prev" onclick="plusSlides(-1)">❮</a>
     <a class="next" onclick="plusSlides(1)">❯</a>
-
   </div>
-
-  <!-- Dots -->
   <div class="dots-container">
     <span class="dot" onclick="currentSlide(1)"></span> 
     <span class="dot" onclick="currentSlide(2)"></span> 
@@ -374,55 +296,51 @@
   </div>
 </section>
 
-<!-- Slideshow Script -->
+<section id="contact">
+  <h2>Contact Us</h2>
+  <p><strong>Address:</strong> Main Road Noamundi, beside Panchayat Bhawan</p>
+  <p><strong>Email:</strong> srigirirajplayschool@gmail.com</p>
+  <p><strong>Phone:</strong> +91 95838-51448, +91 62058-37403</p>
+  <a class="button" href="tel:+919583851448">Call Now!</a>
+</section>
+
+<a class="whatsapp-button" href="https://wa.me/916205837403" target="_blank">WA</a>
+
+<footer>
+  <p>&copy; 2025 Sri Giriraj Playschool. Designed with ❤️ for little learners.</p>
+</footer>
+
 <script>
-  let slideIndex = 0;
+let slideIndex = 0;
+showSlides();
+
+function showSlides() {
+  let i;
+  let slides = document.getElementsByClassName("slide");
+  let dots = document.getElementsByClassName("dot");
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";  
+  }
+  slideIndex++;
+  if (slideIndex > slides.length) {slideIndex = 1}
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " active";
+  setTimeout(showSlides, 3000); // Change every 3 sec
+}
+
+function plusSlides(n) {
+  slideIndex += n-1;
   showSlides();
+}
 
-  function showSlides() {
-    let i;
-    let slides = document.getElementsByClassName("slide");
-    let dots = document.getElementsByClassName("dot");
-    for (i = 0; i < slides.length; i++) {
-      slides[i].style.display = "none";  
-    }
-    slideIndex++;
-    if (slideIndex > slides.length) {slideIndex = 1}
-    for (i = 0; i < dots.length; i++) {
-      dots[i].className = dots[i].className.replace(" active", "");
-    }
-    slides[slideIndex-1].style.display = "block";  
-    dots[slideIndex-1].className += " active";
-    setTimeout(showSlides, 3000); // Change image every 120 seconds
-  }
-
-  function plusSlides(n) {
-    slideIndex += n-1;
-    showSlides();
-  }
-
-  function currentSlide(n) {
-    slideIndex = n-1;
-    showSlides();
-  }
+function currentSlide(n) {
+  slideIndex = n-1;
+  showSlides();
+}
 </script>
 
-    </div>
-  </section>
-
-  <!-- Contact Section -->
-  <section id="contact">
-    <h2>Contact Us</h2>
-    <p><strong>Address:</strong> Main Road Noamundi, beside Panchayat Bhawan</p>
-    <p><strong>Email:</strong> srigirirajplayschool@gmail.com</p>
-    <p><strong>Phone:</strong> +91 95838-51448, +91 62058-37403</p>
-    <a class="button" href="tel:+919583851448">Call Now!</a>
-  </section>
-
-  <a class="whatsapp-button" href="https://wa.me/916205837403" target="_blank">WA</a>
-
-  <footer>
-    <p>&copy; 2025 Sri Giriraj Playschool. Designed with ❤️ for little learners.</p>
-  </footer>
 </body>
 </html>
