@@ -113,6 +113,20 @@
       display: inline-block;
       margin-top: 15px;
     }
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+    }
+    .gallery img {
+      width: 100%;
+      max-width: 300px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 10px;
+      box-shadow: 0 0 5px rgba(0,0,0,0.1);
+    }
     .whatsapp-button {
       position: fixed;
       bottom: 20px;
@@ -130,7 +144,8 @@
       box-shadow: 0 4px 6px rgba(0,0,0,0.1);
       z-index: 1000;
     }
-    /* Slideshow Styles */
+
+    /* Slideshow styles */
     .slideshow-container {
       max-width: 800px;
       position: relative;
@@ -138,31 +153,40 @@
       overflow: hidden;
     }
     .slide {
-      display: none;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+      position: absolute;
+      width: 100%;
+      border-radius: 10px;
     }
     .slide img {
       width: 100%;
-      max-height: 800px;
+      max-height: 500px;
       object-fit: cover;
       border-radius: 10px;
+    }
+    .active-slide {
+      opacity: 1;
+      position: relative;
     }
     .prev, .next {
       cursor: pointer;
       position: absolute;
       top: 50%;
-      width: auto;
       padding: 16px;
       margin-top: -22px;
       color: white;
       font-weight: bold;
       font-size: 20px;
-      border-radius: 0 3px 3px 0;
       user-select: none;
       background-color: rgba(0,0,0,0.5);
+      border-radius: 50%;
     }
     .next {
-      right: 0;
-      border-radius: 3px 0 0 3px;
+      right: 10px;
+    }
+    .prev {
+      left: 10px;
     }
     .dots-container {
       text-align: center;
@@ -176,10 +200,12 @@
       background-color: #bbb;
       border-radius: 50%;
       display: inline-block;
+      transition: background-color 0.6s ease;
     }
-    .active, .dot:hover {
+    .active-dot, .dot:hover {
       background-color: #717171;
     }
+
     /* Responsive */
     @media (max-width: 768px) {
       header img {
@@ -201,8 +227,8 @@
       .hero p {
         font-size: 1.2em;
       }
-      .slide img {
-        height: auto;
+      .gallery img {
+        height: 180px;
       }
       section {
         padding: 30px 15px;
@@ -210,9 +236,7 @@
     }
   </style>
 </head>
-
 <body>
-
   <header>
     <img src="logo.png" alt="School Logo">
     <h1>Sri Giriraj Playschool</h1>
@@ -233,55 +257,59 @@
     <a href="#programs" class="cta-button">Explore Our Programs</a>
   </div>
 
+  <!-- About Section -->
   <section id="about">
     <h2>Welcome to Sri Giriraj Playschool</h2>
     <div class="highlight">
       <p>At Sri Giriraj Playschool, we are dedicated to creating a fun, nurturing, and enriching environment for your child...</p>
       <p><strong>Director:</strong> Priywart Karnani</p>
       <h3>Our Vision</h3>
-      <p>To be a pioneering institution that nurtures growth across all areas.</p>
+      <p>To be a pioneering institution...</p>
       <h3>Our Mission</h3>
-      <p>Providing a safe, creative, and stimulating environment.</p>
+      <p>To provide a safe, creative environment...</p>
       <h3>Our Core Values</h3>
       <ul>
-        <li><strong>Innovation:</strong> Fostering creativity and curiosity.</li>
-        <li><strong>Safety:</strong> Providing a secure environment.</li>
-        <li><strong>Integrity:</strong> Teaching honesty and respect.</li>
-        <li><strong>Community:</strong> Partnering with parents and teachers.</li>
-        <li><strong>Excellence:</strong> Delivering quality education.</li>
+        <li><strong>Innovation:</strong> Fostering creativity.</li>
+        <li><strong>Safety:</strong> Secure environment.</li>
+        <li><strong>Integrity:</strong> Teaching honesty.</li>
+        <li><strong>Community:</strong> Partnering with parents.</li>
+        <li><strong>Excellence:</strong> Top-quality education.</li>
       </ul>
     </div>
   </section>
 
+  <!-- Programs Section -->
   <section id="programs">
     <h2>Our Programs</h2>
     <ul>
       <li>Playgroup</li>
-      <li>Activity-based learning: Art, Spirituality, Music, Dance, Yoga, Outdoor Play</li>
+      <li>Activity-based learning: Art, Music, Dance, Yoga, Outdoor Play</li>
     </ul>
     <div class="highlight">
       <h3>Playgroup Details</h3>
       <p># 3 Hours/Day</p>
-      <p># A safe and stimulating environment for toddlers to learn and grow.</p>
+      <p># Safe, stimulating environment for toddlers.</p>
       <p># Proper theme school dress provided.</p>
     </div>
   </section>
 
+  <!-- Admissions Section -->
   <section id="admissions">
     <h2>Admissions 2025-2026</h2>
-    <p>Admissions are open! Submit the admission form with:</p>
+    <p>Submit the admission form with:</p>
     <ul>
-      <li>Birth Certificate (photocopy)</li>
+      <li>Birth Certificate</li>
       <li>2 Passport-sized Photos</li>
       <li>Parent ID & Address Proof</li>
     </ul>
-    <a class="button" href="https://forms.gle/9VaKpoUp9eWuFJKp9" target="_blank">Fill Admission Form!</a>
+    <a class="button" href="https://forms.gle/9VaKpoUp9eWuFJKp9" download>Fill Admission Form!</a>
   </section>
 
+  <!-- Gallery Section -->
   <section id="gallery">
     <h2>Photo Gallery</h2>
     <div class="slideshow-container">
-      <div class="slide"><img src="DRESS.jpg" alt=""></div>
+      <div class="slide active-slide"><img src="DRESS.jpg" alt=""></div>
       <div class="slide"><img src="p1.jpg" alt=""></div>
       <div class="slide"><img src="p2.jpg" alt=""></div>
       <div class="slide"><img src="p3.webp" alt=""></div>
@@ -293,15 +321,16 @@
     </div>
 
     <div class="dots-container">
+      <span class="dot active-dot" onclick="currentSlide(0)"></span> 
       <span class="dot" onclick="currentSlide(1)"></span> 
       <span class="dot" onclick="currentSlide(2)"></span> 
       <span class="dot" onclick="currentSlide(3)"></span> 
-      <span class="dot" onclick="currentSlide(4)"></span> 
-      <span class="dot" onclick="currentSlide(5)"></span> 
-      <span class="dot" onclick="currentSlide(6)"></span>
+      <span class="dot" onclick="currentSlide(4)"></span>
+      <span class="dot" onclick="currentSlide(5)"></span>
     </div>
   </section>
 
+  <!-- Contact Section -->
   <section id="contact">
     <h2>Contact Us</h2>
     <p><strong>Address:</strong> Main Road Noamundi, beside Panchayat Bhawan</p>
@@ -318,35 +347,43 @@
 
   <script>
     let slideIndex = 0;
-    showSlides();
+    let timer;
 
     function showSlides() {
-      let i;
-      const slides = document.getElementsByClassName("slide");
-      const dots = document.getElementsByClassName("dot");
-      for (i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";  
+      let slides = document.getElementsByClassName("slide");
+      let dots = document.getElementsByClassName("dot");
+
+      for (let i = 0; i < slides.length; i++) {
+        slides[i].classList.remove("active-slide");
+        dots[i].classList.remove("active-dot");
       }
-      slideIndex++;
-      if (slideIndex > slides.length) { slideIndex = 1 }
-      for (i = 0; i < dots.length; i++) {
-        dots[i].className = dots[i].className.replace(" active", "");
-      }
-      slides[slideIndex-1].style.display = "block";  
-      dots[slideIndex-1].className += " active";
-      setTimeout(showSlides, 8000); // Auto-slide every 3s
+      slides[slideIndex].classList.add("active-slide");
+      dots[slideIndex].classList.add("active-dot");
+    }
+
+    function nextSlide() {
+      slideIndex = (slideIndex + 1) % document.getElementsByClassName("slide").length;
+      showSlides();
     }
 
     function plusSlides(n) {
-      slideIndex += n-1;
+      slideIndex = (slideIndex + n + document.getElementsByClassName("slide").length) % document.getElementsByClassName("slide").length;
       showSlides();
+      resetTimer();
     }
 
     function currentSlide(n) {
-      slideIndex = n-1;
+      slideIndex = n;
       showSlides();
+      resetTimer();
     }
-  </script>
 
+    function resetTimer() {
+      clearInterval(timer);
+      timer = setInterval(nextSlide, 8000);
+    }
+
+    timer = setInterval(nextSlide, 8000);
+  </script>
 </body>
 </html>
