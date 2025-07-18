@@ -1,27 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <title>Parent Dashboard - Attendance</title>
-  <script type="module" src="parent-dashboard.js"></script>
-  <style>
-    body { font-family: Poppins, sans-serif; background: #fffbea; padding: 30px; }
-    h1 { color: #ff6f61; }
-    table { width: 100%; border-collapse: collapse; margin-top: 20px; }
-    th, td { border: 1px solid #ddd; padding: 10px; text-align: center; }
-    th { background: #fdbb2d; }
-  </style>
-</head>
-<body>
-  <h1>Child Attendance Record</h1>
-  <table id="attendanceTable">
-    <thead>
-      <tr>
-        <th>Date</th>
-        <th>Status</th>
-      </tr>
-    </thead>
-    <tbody></tbody>
-  </table>
-</body>
-</html>
+// parent-dashboard.js
+import { db, collection, getDocs } from "./firebase.js";
+
+const parentEmail = localStorage.getItem("parentEmail");
+
+async function loadAttendance() {
+  const snapshot = await getDocs(collection(db, "attendance"));
+  const table = document.querySelector("#attendanceTable tbody");
+  table.innerHTML = "";
+
+  snapshot.forEach(doc => {
+    const data = doc.data();
+    if (data.email === parentEmail) {
+      const row = `<tr><td>${data.date}</td><td>${data.status}</td></tr>`;
+      table.insertAdjacentHTML("beforeend", row);
+    }
+  });
+}
+
+loadAttendance();
