@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Attendance Dashboard - Sri Giriraj Playschool</title>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: #fffbea;
+      color: #333;
+    }
+
+    header {
+      background: linear-gradient(to right, #fdbb2d, #f39c12);
+      padding: 30px 20px;
+      text-align: center;
+      color: white;
+    }
+
+    header h1 {
+      margin: 0;
+      font-family: 'Libre Baskerville', serif;
+      font-size: 2em;
+    }
+
+    main {
+      padding: 40px 20px;
+      max-width: 600px;
+      margin: auto;
+      text-align: center;
+    }
+
+    h2 {
+      color: #ff6f61;
+    }
+
+    .card {
+      background: #fff3cd;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      margin: 20px 0;
+    }
+
+    .button {
+      background: #ff6f61;
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 5px;
+      text-decoration: none;
+      font-size: 1em;
+      display: inline-block;
+      margin-top: 15px;
+    }
+
+    footer {
+      background: #fdbb2d;
+      padding: 20px;
+      text-align: center;
+      color: white;
+      font-weight: bold;
+    }
+
+    @media (max-width: 600px) {
+      main {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Attendance Dashboard</h1>
+    <p>Sri Giriraj Playschool</p>
+  </header>
+
+  <main>
+    <h2>Choose Login Type</h2>
+
+    <div class="card">
+      <h3>Parent Login</h3>
+      <p>View your child’s attendance report.</p>
+      <a class="button" href="#">Login as Parent</a>
+    </div>
+
+    <div class="card">
+      <h3>Admin Login</h3>
+      <p>Manage and view full attendance data.</p>
+      <a class="button" href="#">Login as Admin</a>
+    </div>
+  </main>
+
+  <footer>
+    &copy; 2025 Sri Giriraj Playschool | Designed for smart learning
+  </footer>
+</body>
+</html>
